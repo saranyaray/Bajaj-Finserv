@@ -7,6 +7,7 @@ import FilterPanel from "@/components/filter-panel";
 import DoctorList from "@/components/doctor-list";
 import Footer from "@/components/footer";
 import { filterDoctors } from "@/lib/utils/filter-utils";
+import { transformDoctorData } from "@/lib/utils/api-utils";
 
 const Home = () => {
   const [_, setLocation] = useLocation();
@@ -26,13 +27,23 @@ const Home = () => {
   );
 
   // Fetch doctor data
-  const { data: doctors = [], isLoading, error } = useQuery({
-    queryKey: ["https://srijandubey.github.io/campus-api-mock/SRM-C1-25.json"],
+  const { data: rawDoctors = [], isLoading, error } = useQuery({
+    queryKey: ["doctors"],
+    queryFn: async () => {
+      const response = await fetch("https://srijandubey.github.io/campus-api-mock/SRM-C1-25.json");
+      if (!response.ok) {
+        throw new Error("Failed to fetch doctor data");
+      }
+      return response.json();
+    }
   });
+
+  // Transform the API data to match our component expectations
+  const doctors = transformDoctorData(rawDoctors);
 
   // Filter doctors based on current filters
   const filteredDoctors = filterDoctors(
-    doctors as Doctor[],
+    doctors,
     searchTerm,
     consultationMode,
     selectedSpecialties,
