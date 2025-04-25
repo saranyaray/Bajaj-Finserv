@@ -1,3 +1,8 @@
+"homepage": "https://saranyaray.github.io/Bajaj-Finserv",
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}
 "homepage": "https://saranyaray.github.io/Bajaj-Finserv"
 {
   "name": "rest-express",
