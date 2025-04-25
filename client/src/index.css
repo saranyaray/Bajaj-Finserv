@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 220 10% 10%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 220 10% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 10% 10%;
+    
+    --primary: 210 100% 45%;
+    --primary-foreground: 210 0% 100%;
+    
+    --secondary: 340 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 220 10% 97%;
+    --muted-foreground: 220 10% 50%;
+    
+    --accent: 210 50% 95%;
+    --accent-foreground: 210 100% 35%;
+    
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 0% 100%;
+    
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 210 100% 45%;
+    
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 220 10% 10%;
+    --foreground: 210 0% 100%;
+    
+    --card: 220 10% 15%;
+    --card-foreground: 210 0% 100%;
+    
+    --popover: 220 10% 15%;
+    --popover-foreground: 210 0% 100%;
+    
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 0% 100%;
+    
+    --secondary: 340 80% 55%;
+    --secondary-foreground: 210 0% 100%;
+    
+    --muted: 220 10% 20%;
+    --muted-foreground: 220 10% 60%;
+    
+    --accent: 210 50% 20%;
+    --accent-foreground: 210 100% 80%;
+    
+    --destructive: 0 100% 45%;
+    --destructive-foreground: 210 0% 100%;
+    
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 210 100% 50%;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply font-sans antialiased bg-[#f5f7fa] text-foreground;
+  }
+  
+  /* Custom styles for shadcn components */
+  .shadow-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-card-hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
